@@ -8,7 +8,7 @@ import {Router} from 'angular2/router';
 @Component({
   selector: 'login-form',
   styleUrls: [
-  	'/client/components/login-form/style.css'],
+  	'/client/components/login-form/style.less'],
   templateUrl: '/client/components/login-form/login-form.html'
 })
 
@@ -32,11 +32,11 @@ export class LoginForm {
       Meteor.loginWithPassword(credentials.email, credentials.password, (err) => {
         if (err) {
           this.error = err;
-          console.log("Oh No");
+          console.log("Login Failed");
           document.getElementById("errorMessage").innerHTML = "Invalid Input";
         }
         else {
-          console.log("Oh yeah");
+          console.log("Login Successful");
           this.router.navigate(['/DeckList']);
         }
       });
